@@ -4,8 +4,8 @@
 # yDNS account details                  #
 #########################################
 
-YDNS_USER="rory.christina.savage@gmail.com"
-YDNS_PASSWD="no12trust"
+YDNS_USER="user.name@email.com"
+YDNS_PASSWD="password"
 YDNS_HOST="downforce.ydns.eu"
 
 #########################################

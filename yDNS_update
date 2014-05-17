@@ -1,0 +1,35 @@
+#!/bin/bash
+
+#########################################
+# yDNS account details                  #
+#########################################
+
+YDNS_USER="rory.christina.savage@gmail.com"
+YDNS_PASSWD="no12trust"
+YDNS_HOST="downforce.ydns.eu"
+
+#########################################
+# Don't change anything below.          #
+#########################################
+if ! hash curl 2>/dev/null; then
+	echo "ERROR: cURL is missing."
+	exit 1
+fi
+
+
+#########################################
+# Beware of Certificate Errors          #
+#########################################
+ret=`curl --insecure \
+        --basic \
+	-u "$YDNS_USER:$YDNS_PASSWD" \
+	--silent \
+	https://ydns.eu/api/v1/update/?host=$YDNS_HOST`
+
+if [ "$ret" = "ok" ]; then
+	echo "Update: OK"
+	exit 0
+else
+	echo "Update failed: $ret"
+	exit 1
+fi
